@@ -14,6 +14,9 @@ import packagingImg from '../assets/images/pizzataco_packaging_set_1785810808508
 import eventTeamImg from '../assets/images/pizzataco_event_team_1785810825237.jpg';
 import logoImg from '../assets/images/pizzataco_gold_seal_1785815612971.jpg';
 import bannerLogoImg from '../assets/images/pizzataco_banner_logo_1785814463178.jpg';
+import maosImg from '../assets/images/maos.png';
+import piz01Img from '../assets/images/piz01.png';
+import piz02Img from '../assets/images/piz02.png';
 
 export const ASSETS = {
   hero: heroImg,
@@ -30,6 +33,9 @@ export const ASSETS = {
   eventTeam: eventTeamImg,
   logo: logoImg,
   bannerLogo: bannerLogoImg,
+  maos: maosImg,
+  piz01: piz01Img,
+  piz02: piz02Img,
 };
 
 export const INSTAGRAM_HANDLE = "@pizzataco_eventos";

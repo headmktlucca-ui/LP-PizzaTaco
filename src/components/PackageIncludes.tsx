@@ -13,10 +13,7 @@ export const PackageIncludes: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-6 mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#D42424] text-white text-xs font-black uppercase tracking-widest shadow-sm mb-3">
-            CARDÁPIO COMPLETO DE SABORES
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2D2D2D] mt-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2D2D2D] mt-4 font-bouncer">
             Cardápio de Sabores <span className="text-[#527756]">Pizza</span> <span className="text-[#D42424]">Taco</span>
           </h2>
           <p className="text-lg text-[#2D2D2D]/80 font-medium">

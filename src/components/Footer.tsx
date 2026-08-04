@@ -1,6 +1,9 @@
 import React from 'react';
-import { Pizza, Instagram, MessageCircle, MapPin, Clock, Phone, Heart } from 'lucide-react';
+import { Pizza, MessageCircle, MapPin, Clock, Phone, Heart } from 'lucide-react';
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER, ASSETS } from '../data/pizzaData';
+import { InstagramIcon } from './InstagramIcon';
+import { WhatsAppIcon } from './WhatsAppIcon';
+import logoImg from '../assets/images/Logo222.png';
 
 export const Footer: React.FC = () => {
   return (
@@ -12,13 +15,11 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div>
-              <span className="text-xl font-black tracking-wider uppercase">
-                <span className="text-[#527756]">PIZZA</span>{" "}
-                <span className="text-[#D42424]">TACO</span>
-              </span>
-              <p className="text-[10px] font-black tracking-widest text-[#D42424] uppercase">
-                Buffet de Eventos
-              </p>
+              <img 
+                src={logoImg} 
+                alt="Pizza Taco Logo" 
+                className="h-16 sm:h-20 w-auto object-contain"
+              />
             </div>
 
             <p className="text-sm text-[#FFFBF0]/80 font-medium leading-relaxed max-w-md">
@@ -30,20 +31,20 @@ export const Footer: React.FC = () => {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-[#FFB800] text-[#2D2D2D] hover:bg-white transition-all shadow-md"
+                className="w-11 h-11 rounded-xl bg-white border border-stone-200 shadow-md flex items-center justify-center hover:scale-105 active:scale-95 transition-all"
                 title="Instagram @pizzataco_eventos"
               >
-                <Instagram className="w-5 h-5" />
+                <InstagramIcon className="w-8 h-8" />
               </a>
 
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-[#25D366] text-white hover:bg-[#20ba5a] transition-all shadow-md"
+                className="w-11 h-11 rounded-xl bg-white border border-stone-200 shadow-md flex items-center justify-center hover:scale-105 active:scale-95 transition-all"
                 title="WhatsApp Pizza Taco"
               >
-                <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
+                <WhatsAppIcon className="w-8 h-8" />
               </a>
             </div>
           </div>
@@ -56,7 +57,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs font-bold text-[#FFFBF0]/80">
               <li><a href="#como-funciona" className="hover:text-[#D42424] transition-colors">Como Funciona</a></li>
               <li><a href="#o-que-inclui" className="hover:text-[#D42424] transition-colors">O Que Inclui</a></li>
-              <li><a href="#galeria" className="hover:text-[#D42424] transition-colors">Galeria</a></li>
+              <li><a href="#quem-somos" className="hover:text-[#D42424] transition-colors">Quem Somos</a></li>
               <li><a href="#faq" className="hover:text-[#D42424] transition-colors">Dúvidas</a></li>
             </ul>
           </div>
@@ -76,7 +77,7 @@ export const Footer: React.FC = () => {
                 <span>WhatsApp: <strong className="text-white">{WHATSAPP_DISPLAY}</strong></span>
               </li>
               <li className="flex items-center gap-2">
-                <Instagram className="w-4 h-4 text-[#D42424] shrink-0" />
+                <InstagramIcon className="w-4 h-4 shrink-0" />
                 <span>Instagram: <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:underline font-black text-[#FFB800]">{INSTAGRAM_HANDLE}</a></span>
               </li>
               <li className="flex items-center gap-2">

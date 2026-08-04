@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Pizza, Phone, MessageCircle, Instagram, Menu, X, Calendar, Sparkles } from 'lucide-react';
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER, ASSETS } from '../data/pizzaData';
+import { InstagramIcon } from './InstagramIcon';
+import { WhatsAppIcon } from './WhatsAppIcon';
+import logoImg from '../assets/images/Logo222.png';
 
 interface HeaderProps {
   onOpenCalculator: () => void;
@@ -21,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
   const navLinks = [
     { name: 'Como Funciona', href: '#como-funciona' },
     { name: 'O Que Inclui', href: '#o-que-inclui' },
-    { name: 'Galeria', href: '#galeria' },
+    { name: 'Quem Somos', href: '#quem-somos' },
     { name: 'Dúvidas', href: '#faq' },
   ];
 
@@ -35,8 +38,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#E3AE2A]/95 backdrop-blur-md shadow-sm border-b border-[#2D2D2D]/5 py-3'
-          : 'bg-[#E3AE2A] py-4 border-b border-[#2D2D2D]/5'
+          ? 'bg-[#FFEBB4]/95 backdrop-blur-md shadow-sm border-b border-[#2D2D2D]/5 py-0.5'
+          : 'bg-[#FFEBB4] py-1 border-b border-[#2D2D2D]/5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,18 +48,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-3 group text-decoration-none"
+            className="flex items-center gap-2 sm:gap-3 group text-decoration-none"
             id="brand-logo"
           >
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tighter leading-none uppercase">
-                <span className="text-[#527756]">PIZZA</span>{" "}
-                <span className="text-[#D42424]">TACO</span>
-              </span>
-              <span className="text-[10px] font-black tracking-widest text-[#D42424] uppercase">
-                Buffet para Eventos
-              </span>
-            </div>
+            <img 
+              src={logoImg} 
+              alt="Pizza Taco Logo" 
+              className="h-[62px] sm:h-[74px] md:h-[88px] w-auto object-contain group-hover:scale-105 transition-transform duration-200"
+            />
+            <span className="font-bouncer text-sm sm:text-base md:text-lg lg:text-xl tracking-wider text-[#D42424] uppercase leading-tight max-w-[120px] sm:max-w-none">
+              BUFFET PARA EVENTOS
+            </span>
           </a>
 
           {/* Desktop Nav Links */}
@@ -65,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-black uppercase tracking-widest text-white hover:text-[#2D2D2D] transition-colors py-1"
+                className="text-xs font-black uppercase tracking-widest text-[#236034] hover:text-[#D42424] transition-colors py-1"
               >
                 {link.name}
               </a>
@@ -78,20 +80,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full bg-white text-[#2D2D2D] hover:text-[#D42424] hover:shadow-md transition-all border-2 border-[#2D2D2D]/10"
+              className="w-10 h-10 rounded-xl bg-white hover:shadow-md transition-all border border-[#2D2D2D]/10 hover:scale-105 active:scale-95 flex items-center justify-center"
               title="Siga @pizzataco_eventos no Instagram"
               id="instagram-nav-btn"
             >
-              <Instagram className="w-4 h-4" />
+              <InstagramIcon className="w-7 h-7" />
             </a>
 
             <button
               onClick={handleWhatsappClick}
               id="header-whatsapp-btn"
-              className="px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+              className="w-10 h-10 rounded-xl bg-white hover:shadow-md transition-all border border-[#2D2D2D]/10 hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer"
+              title="Falar no WhatsApp"
             >
-              <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />
-              <span>WhatsApp</span>
+              <WhatsAppIcon className="w-8 h-8" />
             </button>
           </div>
 
@@ -109,14 +111,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#E3AE2A] border-b border-[#2D2D2D]/5 px-4 pt-4 pb-6 mt-3 shadow-2xl animate-in slide-in-from-top duration-200">
+        <div className="lg:hidden bg-[#FFEBB4] border-b border-[#2D2D2D]/5 px-4 pt-4 pb-6 mt-3 shadow-2xl animate-in slide-in-from-top duration-200">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-black uppercase tracking-wider text-[#2D2D2D] hover:text-[#D42424] py-2 border-b border-stone-200 flex items-center justify-between"
+                className="text-sm font-black uppercase tracking-wider text-[#236034] hover:text-[#D42424] py-2 border-b border-[#236034]/10 flex items-center justify-between"
               >
                 <span>{link.name}</span>
                 <span className="text-[#D42424] text-xs">→</span>
@@ -127,22 +129,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenCalculator();
-                }}
-                className="w-full py-3 rounded-full bg-[#FFB800] text-[#2D2D2D] font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
-              >
-                <Sparkles className="w-4 h-4" />
-                Simular Orçamento Instantâneo
-              </button>
-
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
                   handleWhatsappClick();
                 }}
-                className="w-full py-3 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
+                className="w-full py-3 rounded-full bg-[#236034] hover:bg-[#1b4c29] text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-5 h-5 shrink-0" />
                 Pedir no WhatsApp {WHATSAPP_DISPLAY}
               </button>
 
@@ -152,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
                 rel="noopener noreferrer"
                 className="w-full py-2.5 rounded-full bg-white text-[#2D2D2D] font-bold text-xs flex items-center justify-center gap-2 border-2 border-[#2D2D2D]/10"
               >
-                <Instagram className="w-4 h-4 text-[#D42424]" />
+                <InstagramIcon className="w-5 h-5 shrink-0" />
                 Siga @pizzataco_eventos no Instagram
               </a>
             </div>

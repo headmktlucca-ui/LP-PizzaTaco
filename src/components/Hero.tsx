@@ -108,16 +108,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCalculator }) => {
           {/* Left Text Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D42424] text-white font-black text-xs uppercase tracking-widest shadow-sm border-2 border-[#2D2D2D]/10">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-              </span>
-              <Flame className="w-4 h-4 text-white" />
-              <span className="text-white">Especialistas em Eventos</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal font-script tracking-wide leading-[1.2] text-[#2D2D2D]">
               O sabor que transforma momentos em <span className="text-[#D42424]">lembranças inesquecíveis.</span>
@@ -127,26 +117,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCalculator }) => {
             <p className="text-base sm:text-lg text-[#2D2D2D]/80 leading-relaxed max-w-2xl font-medium">
               Casamentos, aniversários, encontros corporativos e muito mais. Oferecemos uma infraestrutura completa e independente de <strong className="text-[#2D2D2D] font-bold">live cooking</strong> com <strong className="text-[#2D2D2D] font-bold">equipe qualificada</strong> e <strong className="text-[#2D2D2D] font-bold">forno profissional</strong>.
             </p>
-
-            {/* Quick Benefits Pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 pt-2 max-w-xl">
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border-2 border-[#2D2D2D]/10 shadow-sm">
-                <Users className="w-5 h-5 text-[#D42424] shrink-0" />
-                <span className="text-xs sm:text-sm font-black text-[#2D2D2D]">Pizzaiolo + Ajudante</span>
-              </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border-2 border-[#2D2D2D]/10 shadow-sm">
-                <Flame className="w-5 h-5 text-[#FFB800] shrink-0" />
-                <span className="text-xs sm:text-sm font-black text-[#2D2D2D]">Forno Incluso no Local</span>
-              </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border-2 border-[#2D2D2D]/10 shadow-sm">
-                <PackageCheck className="w-5 h-5 text-[#D42424] shrink-0" />
-                <span className="text-xs sm:text-sm font-black text-[#2D2D2D]">Sem Pratos ou Sujeira</span>
-              </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border-2 border-[#2D2D2D]/10 shadow-sm">
-                <CheckCircle2 className="w-5 h-5 text-[#FFB800] shrink-0" />
-                <span className="text-xs sm:text-sm font-black text-[#2D2D2D]">Sabores à Sua Escolha</span>
-              </div>
-            </div>
 
           </div>
 

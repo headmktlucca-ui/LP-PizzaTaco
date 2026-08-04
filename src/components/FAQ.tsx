@@ -25,7 +25,7 @@ export const FAQ: React.FC = () => {
             <HelpCircle className="w-4 h-4 text-[#FFB800]" />
             TIRA DÚVIDAS
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#2D2D2D]">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#2D2D2D] font-bouncer">
             Perguntas Frequentes
           </h2>
           <p className="text-[#2D2D2D]/80 font-medium text-base">

@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { HowItWorks } from './components/HowItWorks';
 import { PackageIncludes } from './components/PackageIncludes';
+import { AboutUs } from './components/AboutUs';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
@@ -26,6 +27,7 @@ export default function App() {
         <Hero onOpenCalculator={scrollToCalculator} />
         <HowItWorks />
         <PackageIncludes />
+        <AboutUs />
         <FAQ />
       </main>
 
