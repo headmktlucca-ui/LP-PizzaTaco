@@ -6,10 +6,12 @@ import { WhatsAppIcon } from './WhatsAppIcon';
 import logoImg from '../assets/images/Logo222.png';
 
 interface HeaderProps {
-  onOpenCalculator: () => void;
+  onOpenCalculator?: () => void;
+  currentPage?: 'home' | 'blog';
+  onNavigate?: (page: 'home' | 'blog') => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenCalculator, currentPage = 'home', onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,11 +24,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Como Funciona', href: '#como-funciona' },
-    { name: 'O Que Inclui', href: '#o-que-inclui' },
-    { name: 'Quem Somos', href: '#quem-somos' },
-    { name: 'Dúvidas', href: '#faq' },
+    { name: 'Como Funciona', href: '#como-funciona', isBlog: false },
+    { name: 'O Que Inclui', href: '#o-que-inclui', isBlog: false },
+    { name: 'Quem Somos', href: '#quem-somos', isBlog: false },
+    { name: 'Dúvidas', href: '#faq', isBlog: false },
+    { name: 'Além dos Sabores', href: '#blog', isBlog: true },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: typeof navLinks[0]) => {
+    if (link.isBlog) {
+      e.preventDefault();
+      onNavigate?.('blog');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      if (currentPage === 'blog') {
+        e.preventDefault();
+        onNavigate?.('home');
+        setTimeout(() => {
+          const el = document.querySelector(link.href);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onNavigate?.('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleWhatsappClick = () => {
     const text = encodeURIComponent('Olá! Gostaria de um orçamento para levar o buffet da Pizza Taco para o meu evento!');
@@ -48,7 +78,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2 sm:gap-3 group text-decoration-none"
+            onClick={handleLogoClick}
+            className="flex items-center gap-2 sm:gap-3 group text-decoration-none cursor-pointer"
             id="brand-logo"
           >
             <img 
@@ -63,15 +94,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-6" id="desktop-nav">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-xs font-black uppercase tracking-widest text-[#236034] hover:text-[#D42424] transition-colors py-1"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActiveBlog = link.isBlog && currentPage === 'blog';
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className={`text-xs font-black uppercase tracking-widest transition-all py-1 flex items-center gap-1.5 cursor-pointer ${
+                    isActiveBlog
+                      ? 'text-[#D42424] bg-white px-3 py-1 rounded-full shadow-sm border border-[#D42424]/20'
+                      : link.isBlog
+                      ? 'text-[#D42424] hover:text-[#236034]'
+                      : 'text-[#236034] hover:text-[#D42424]'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {link.isBlog && (
+                    <span className="text-[9px] font-extrabold uppercase bg-[#D42424] text-white px-1.5 py-0.5 rounded-full tracking-wider">
+                      BLOG
+                    </span>
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Action CTAs */}
@@ -117,10 +163,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCalculator }) => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-black uppercase tracking-wider text-[#236034] hover:text-[#D42424] py-2 border-b border-[#236034]/10 flex items-center justify-between"
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  handleNavClick(e, link);
+                }}
+                className={`text-sm font-black uppercase tracking-wider py-2 border-b border-[#236034]/10 flex items-center justify-between cursor-pointer ${
+                  link.isBlog ? 'text-[#D42424]' : 'text-[#236034] hover:text-[#D42424]'
+                }`}
               >
-                <span>{link.name}</span>
+                <div className="flex items-center gap-2">
+                  <span>{link.name}</span>
+                  {link.isBlog && (
+                    <span className="text-[9px] font-extrabold uppercase bg-[#D42424] text-white px-2 py-0.5 rounded-full tracking-wider">
+                      BLOG
+                    </span>
+                  )}
+                </div>
                 <span className="text-[#D42424] text-xs">→</span>
               </a>
             ))}

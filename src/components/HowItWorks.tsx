@@ -15,12 +15,12 @@ const STEPS = [
   },
   {
     step: '03',
-    title: 'Recebemos a estrutura',
+    title: 'Instalamos toda estrutura',
     description: 'Chegamos cedo, montamos tudo e nossa equipe assume o restante.',
   },
   {
     step: '04',
-    title: 'Sua festa, nossa pizza',
+    title: 'Seu evento, nossos sabores.',
     description: 'Você curte o evento. A gente cuida de cada fatia.',
   },
 ];

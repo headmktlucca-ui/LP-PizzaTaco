@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 export const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w-6 h-6" }) => {
+  const gradientId = useId();
+
   return (
     <svg 
       className={className} 
@@ -9,7 +11,7 @@ export const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id="igGradient" cx="30%" cy="107%" r="150%" fx="30%" fy="107%">
+        <radialGradient id={gradientId} cx="30%" cy="107%" r="150%" fx="30%" fy="107%">
           <stop offset="0%" stopColor="#fdf497" />
           <stop offset="5%" stopColor="#fdf497" />
           <stop offset="45%" stopColor="#fd5949" />
@@ -17,7 +19,7 @@ export const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w
           <stop offset="90%" stopColor="#285AEB" />
         </radialGradient>
       </defs>
-      <rect width="24" height="24" rx="6" fill="url(#igGradient)" />
+      <rect width="24" height="24" rx="6" fill={`url(#${gradientId})`} />
       <path
         d="M12 7A5 5 0 1012 17 5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6z"
         fill="white"

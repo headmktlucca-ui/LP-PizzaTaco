@@ -5,7 +5,27 @@ import { InstagramIcon } from './InstagramIcon';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import logoImg from '../assets/images/Logo222.png';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  currentPage?: 'home' | 'blog';
+  onNavigate?: (page: 'home' | 'blog') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ currentPage = 'home', onNavigate }) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isBlog = false) => {
+    if (isBlog) {
+      e.preventDefault();
+      onNavigate?.('blog');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (currentPage === 'blog') {
+      e.preventDefault();
+      onNavigate?.('home');
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
+  };
   return (
     <footer className="bg-[#2D2D2D] text-[#FFFBF0] border-t-4 border-[#D42424] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,10 +75,11 @@ export const Footer: React.FC = () => {
               Navegação
             </h4>
             <ul className="space-y-2 text-xs font-bold text-[#FFFBF0]/80">
-              <li><a href="#como-funciona" className="hover:text-[#D42424] transition-colors">Como Funciona</a></li>
-              <li><a href="#o-que-inclui" className="hover:text-[#D42424] transition-colors">O Que Inclui</a></li>
-              <li><a href="#quem-somos" className="hover:text-[#D42424] transition-colors">Quem Somos</a></li>
-              <li><a href="#faq" className="hover:text-[#D42424] transition-colors">Dúvidas</a></li>
+              <li><a href="#como-funciona" onClick={(e) => handleLinkClick(e, '#como-funciona')} className="hover:text-[#D42424] transition-colors">Como Funciona</a></li>
+              <li><a href="#o-que-inclui" onClick={(e) => handleLinkClick(e, '#o-que-inclui')} className="hover:text-[#D42424] transition-colors">O Que Inclui</a></li>
+              <li><a href="#quem-somos" onClick={(e) => handleLinkClick(e, '#quem-somos')} className="hover:text-[#D42424] transition-colors">Quem Somos</a></li>
+              <li><a href="#faq" onClick={(e) => handleLinkClick(e, '#faq')} className="hover:text-[#D42424] transition-colors">Dúvidas</a></li>
+              <li><a href="#blog" onClick={(e) => handleLinkClick(e, '#blog', true)} className="text-[#FFB800] hover:text-white transition-colors flex items-center gap-1.5 font-black"><span>Além dos Sabores (Blog)</span></a></li>
             </ul>
           </div>
 
@@ -77,7 +98,7 @@ export const Footer: React.FC = () => {
                 <span>WhatsApp: <strong className="text-white">{WHATSAPP_DISPLAY}</strong></span>
               </li>
               <li className="flex items-center gap-2">
-                <InstagramIcon className="w-4 h-4 shrink-0" />
+                <InstagramIcon className="w-5 h-5 shrink-0" />
                 <span>Instagram: <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:underline font-black text-[#FFB800]">{INSTAGRAM_HANDLE}</a></span>
               </li>
               <li className="flex items-center gap-2">

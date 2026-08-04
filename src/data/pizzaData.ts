@@ -368,6 +368,36 @@ export const FAQ_ITEMS: FAQItem[] = [
     question: 'E se sobrar pizzas preparadas?',
     answer: 'Todas as pizzas pré-escolhidas contratadas pertencem a você! Se ao final do evento houver pizzas não assadas, embalamos com cuidado para você guardar na geladeira.',
     category: 'estrutura'
+  },
+  {
+    id: 'restricoes_alimentares',
+    question: 'Vocês oferecem opções vegetarianas, veganas ou sem lactose?',
+    answer: 'Sim! Nosso cardápio conta com opções vegetarianas deliciosas como Abobrinha Especial e Margherita. Também adaptamos recheios sem lactose ou veganos sob demanda informada no momento da contratação.',
+    category: 'cardapio'
+  },
+  {
+    id: 'bebidas_loucas',
+    question: 'O buffet inclui bebidas ou pratos e talheres?',
+    answer: 'Nosso serviço tem como diferencial a praticidade da Pizza Taco servida quentinha em invólucros de papel acoplado individual, dispensando pratos e talheres! As bebidas e serviços adicionais podem ser agregados ao seu pacote sob consulta.',
+    category: 'estrutura'
+  },
+  {
+    id: 'formas_pagamento',
+    question: 'Quais são as formas de pagamento e como funciona a reserva?',
+    answer: 'A reserva da data é confirmada mediante sinal de 30%. O saldo restante pode ser quitado via Pix ou parcelado no cartão de crédito em até 12x até a data estipulada em contrato.',
+    category: 'logistica'
+  },
+  {
+    id: 'equipe_uniformizada',
+    question: 'A equipe vem uniformizada para o atendimento no evento?',
+    answer: 'Com certeza! Toda a nossa equipe de pizzaiolos e auxiliares se apresenta devidamente uniformizada, com equipamentos higienizados e treinamento para um atendimento atencioso e ágil.',
+    category: 'estrutura'
+  },
+  {
+    id: 'locais_abertos',
+    question: 'É possível realizar o buffet em áreas abertas ou ao ar livre?',
+    answer: 'Sim! Atendemos em quintais, chácaras, terraços e garagens. Solicitamos apenas uma cobertura (tenda ou varanda) para proteção do forno contra vento forte, sol direto ou chuva.',
+    category: 'estrutura'
   }
 ];
 

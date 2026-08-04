@@ -3,14 +3,12 @@ import { INSTAGRAM_URL, WHATSAPP_NUMBER } from '../data/pizzaData';
 import { Sparkles, MessageCircle, Flame, CheckCircle2, Users, PackageCheck, Award, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import heroImg from '../assets/images/capa.png';
-import img01 from '../assets/images/01.jpeg';
-import img02 from '../assets/images/005.png';
-import img03 from '../assets/images/03.jpeg';
 import img04 from '../assets/images/04.jpeg';
-import img005 from '../assets/images/005.png';
-import img006 from '../assets/images/006.png';
-import img007 from '../assets/images/007.png';
+import img03 from '../assets/images/03.jpeg';
+import img009 from '../assets/images/009.png';
 import img008 from '../assets/images/008.png';
+import img010 from '../assets/images/010.png';
+import img01 from '../assets/images/01.jpeg';
 
 interface HeroProps {
   onOpenCalculator: () => void;
@@ -27,16 +25,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCalculator }) => {
       subtitle: 'Pizzas assadas em 3 minutos diante dos seus convidados',
     },
     {
-      url: img01,
-      alt: 'Estrutura e Apresentação nos Eventos',
-      title: 'Estrutura Completa de Eventos',
-      subtitle: 'Live cooking independente e profissional no seu espaço',
-    },
-    {
-      url: img02,
-      alt: 'Pizza Taco Quentinha e Crocante',
-      title: 'Assadas na Hora',
-      subtitle: 'Sabor inigualável servido direto do forno para seus convidados',
+      url: img04,
+      alt: 'Embalagem Prática e Exclusiva',
+      title: 'Embalagens Exclusivas',
+      subtitle: 'Praticidade e higiene com nossas caixinhas Pizza Taco',
     },
     {
       url: img03,
@@ -45,34 +37,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCalculator }) => {
       subtitle: 'Opções salgadas e doces preparadas com ingredientes selecionados',
     },
     {
-      url: img04,
-      alt: 'Embalagem Prática e Exclusiva',
-      title: 'Embalagens Exclusivas',
-      subtitle: 'Praticidade e higiene com nossas caixinhas Pizza Taco',
-    },
-    {
-      url: img005,
+      url: img009,
       alt: 'Pizza Taco Especial',
-      title: 'Ingredientes Selecionados',
-      subtitle: 'Qualidade artesanal e textura perfeita',
-    },
-    {
-      url: img006,
-      alt: 'Sabor Abobrinha com Queijo',
-      title: 'Sabores Especiais',
-      subtitle: 'Receitas exclusivas de sucesso absoluto',
-    },
-    {
-      url: img007,
-      alt: 'Variedade de Pizza Taco',
-      title: 'Variedade de Sabores',
-      subtitle: 'Opções recheadas e crocantes para seu evento',
+      title: 'Apresentação Impecável',
+      subtitle: 'Servido com carinho e qualidade artesanal',
     },
     {
       url: img008,
       alt: 'Pizza Taco Recheada',
       title: 'Assada e Crocante',
       subtitle: 'Prontinha para servir aos convidados',
+    },
+    {
+      url: img010,
+      alt: 'Pizza Taco Gourmet',
+      title: 'Sabor Surpreendente',
+      subtitle: 'A melhor experiência de buffet para seu evento',
+    },
+    {
+      url: img01,
+      alt: 'Estrutura e Apresentação nos Eventos',
+      title: 'Estrutura Completa de Eventos',
+      subtitle: 'Live cooking independente e profissional no seu espaço',
     },
   ];
 
