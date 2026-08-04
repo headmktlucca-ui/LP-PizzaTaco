@@ -1,0 +1,6 @@
+{
+  "name": "Pizza Taco - Eventos & Buffet de Pizza",
+  "description": "Landing page oficial para contratação de buffet de Pizza Taco em eventos. Estrutura completa com forno, pizzaiolo, equipe e pizzas prontas para assar na hora.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

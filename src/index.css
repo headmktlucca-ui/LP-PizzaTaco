@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.font-script {
+  font-family: 'Great Vibes', 'Alex Brush', 'Pinyon Script', cursive;
+}
+
+.font-calligraphy {
+  font-family: 'Alex Brush', 'Great Vibes', cursive;
+}
